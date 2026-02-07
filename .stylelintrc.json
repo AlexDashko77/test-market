@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$"
+  }
+}

@@ -1,0 +1,21 @@
+@import "../styles/variables";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  position: relative;
+
+  @media (width <= 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (width <= 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width <= 480px) {
+    grid-template-columns: 1fr;
+  }
+}

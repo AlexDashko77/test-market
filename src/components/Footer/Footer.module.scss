@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+
+.footer {
+  padding: $spacing-sm;
+  text-align: center;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-family: $font-base;
+}

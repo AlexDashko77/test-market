@@ -1,0 +1,79 @@
+@import "../../styles/variables";
+
+.form {
+  max-width: 380px;
+  margin: $spacing-xl auto;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  border-radius: $border-radius-lg;
+  border: $border-width solid $border-color;
+  background: $color-surface;
+  box-shadow: $shadow-light;
+  font-family: $font-base;
+
+  h1 {
+    text-align: center;
+    font-size: $font-size-lg;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.input {
+  position: relative;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  border: $border-width solid $border-color;
+  font-size: $font-size-base;
+  outline: none;
+  background: $color-background;
+  transition:
+    border-color $animation-duration-fast,
+    box-shadow $animation-duration-fast;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 4px 12px rgb(79 70 229 / 15%);
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+    opacity: 1;
+  }
+}
+
+.button {
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  border: none;
+  cursor: pointer;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  color: $color-background;
+  background: linear-gradient(135deg, $color-button-gradient-start, $color-button-gradient-end);
+  transition: all $animation-duration-fast ease-in-out;
+  box-shadow: $shadow-medium;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $color-button-gradient-end, $color-button-gradient-start);
+    transform: translateY(-2px);
+    box-shadow: $shadow-hover;
+  }
+
+  &:disabled {
+    background: $border-color;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.error {
+  color: $color-error;
+  font-size: $font-size-sm;
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-sm;
+  text-align: left;
+}

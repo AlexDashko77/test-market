@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  background: $color-text;
+  color: $color-background;
+  font-family: $font-base;
+}
+
+.user {
+  width: 100%;
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  color: $color-background;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition:
+    background $animation-duration-fast,
+    color $animation-duration-fast;
+
+  &:hover {
+    background: rgb(255 255 255 / 10%);
+  }
+
+  &:disabled {
+    color: $color-text-muted;
+    cursor: not-allowed;
+    background: none;
+  }
+}

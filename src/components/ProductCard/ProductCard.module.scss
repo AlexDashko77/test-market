@@ -1,0 +1,80 @@
+@import "../../styles/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-background;
+  border: $border-width solid $border-color;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: transform $animation-duration-fast ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: $color-surface;
+  border-bottom: $border-width solid $border-color;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.info {
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: 1.2;
+}
+
+.category {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.price {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+}
+
+.button {
+  padding: 6px 12px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-primary;
+  background: transparent;
+  color: $color-primary;
+  cursor: pointer;
+  transition:
+    background $animation-duration-fast,
+    color $animation-duration-fast;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-background;
+  }
+}

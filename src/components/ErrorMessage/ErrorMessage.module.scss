@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.error {
+  padding: $spacing-sm $spacing-md;
+  background: rgba($color-error, 0.12);
+  color: $color-error;
+  border-radius: $radius-md;
+  border: $border-width solid rgba($color-error, 0.3);
+  text-align: center;
+  font-size: $font-size-sm;
+  font-family: $font-base;
+}
