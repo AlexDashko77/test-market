@@ -1,27 +1,36 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { cookies } from "next/headers";
 
 export async function getUser() {
   try {
     const cookieStore = await cookies();
-    console.log("cookie: ", cookieStore);
 
-    const tokenCookie = cookieStore.get("token");
+    const cookieHeader = cookieStore
+      .getAll()
+      .map((c) => `${c.name}=${c.value}`)
+      .join("; ");
 
-    if (!tokenCookie) {
+    if (!cookieHeader) {
       return null;
     }
 
-    const cookieHeader = `token=${tokenCookie.value}`;
-
-    const res = await axios.get(`http://localhost:3000/api/me`, {
-      headers: { Cookie: cookieHeader },
+    const res = await axios.get("http://localhost:3000/api/me", {
+      headers: {
+        Cookie: cookieHeader,
+      },
       withCredentials: true,
     });
 
     return res.data;
-  } catch (error) {
-    console.error("getUser error:", error);
+  } catch (err: unknown) {
+    if (axios.isAxiosError(err)) {
+      const axiosErr = err as AxiosError;
+
+      if (axiosErr.response?.status === 401) {
+        return null;
+      }
+    }
+
     return null;
   }
 }
